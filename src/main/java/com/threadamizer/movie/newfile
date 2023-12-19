@@ -1,0 +1,43 @@
+2.Exercise two
+
+  Implement a method getActionMovieNames that retrieves the names of movies that belong to the Action genre
+
+  The output will be a List<String> as we are only interested in the names of the movies.
+
+  Output - [Casino Royale, Fight Club, Bad Boys For Life, Rocky Two, Rocky, Rocky Three]
+
+ 
+
+3.Exercise three
+
+  Retrieve a list of action movies sorted by name alphabetically
+
+  Output - [Bad Boys For Life, Casino Royale, Fight Club, Rocky, Rocky Three, Rocky Two]
+
+ 
+
+4.Exercise four
+
+  Retrieve a list of action movies sorted by release date
+
+  Output - [ Movie [name=Rocky, dateOfRelease=1976-12-03],
+
+             Movie [name=Rocky Two, dateOfRelease=1979-06-15],
+
+             Movie [name=Rocky Three, dateOfRelease=1982-05-28],
+
+             Movie [name=Fight Club, dateOfRelease=1999-10-10],
+
+             Movie [name=Casino Royale, dateOfRelease=2006-11-14],
+
+             Movie [name=Bad Boys For Life, dateOfRelease=2020-01-17]
+
+            ]
+
+ 
+
+5.Exercise five
+
+  Get unique names of the directors that have released a movie released after 2000
+
+  Output - [Martin Campbell, Anthony Russo, Peter Howitt, Martin Scorsese, Nicolas Pesce, Quentin Tarantino, Adil El Arbi]

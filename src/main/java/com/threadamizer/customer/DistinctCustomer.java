@@ -10,9 +10,8 @@ import java.util.stream.Collectors;
 
 public class DistinctCustomer {
 	
-	public static void main(String[] args) 
-	{		
-		Customer c1 = new Customer(1,"Anil");
+	public static void main(String[] args){		
+		Customer c1 = new Customer(1,"Anil  ");
 		Customer c2 = new Customer(2,"Bob");
 		Customer c3 = new Customer(3,"Christie");
 		Customer c4 = new Customer(4,"Danny");

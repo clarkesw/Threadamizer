@@ -86,4 +86,8 @@ public class Employee {
 //        public int compareTo(Employee e) {
 //            return this.getName().compareTo(e.getName());
 //        }
+
+    int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

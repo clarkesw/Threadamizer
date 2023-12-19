@@ -4,7 +4,11 @@
  */
 package com.threadamizer;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.function.*;
 import java.util.stream.*;
 
 /**
@@ -12,29 +16,23 @@ import java.util.stream.*;
  * @author Clarke S.
  */
 public class Basic {
-    public static void main(String[] args) {
-        List<String> names = Arrays.asList("me","twagon","mike","kasandri","Clarke");
-        List<String> collect = names.stream()
-                .filter(x -> x.length() > 4)
-                .sorted()
-                .collect(Collectors.toList());
+    private static String FILE_PATH = "C:\\Users\\clark\\OneDrive\\Documents\\NetBeansProjects\\Threadamizer\\src\\main\\java\\com\\threadamizer\\invalidpasswords.txt";
+    public static void main(String[] args) throws IOException {
+//        List<String> names = Arrays.asList("me","twagon","mike","kasandri","Clarke");
+//        List<Integer> list = Arrays.asList(3, 4, 6, 12, 20); 
 
-//        Comparator<String> comp = new Comparator<String>(){
-//            @Override
-//            public int compare(String a, String b){
-//                if(a.compareTo(b)){
-//                    return -1;
-//                }else if(b.compareTo(a)){
-//                    return 1;
-//                }
-//                return 0;
-//            }
-//        };
-//                       .filter(Basic::isMore)
-//                .map(Basic::toUpper)
-        for(String out : collect){
-            System.out.println(out);
+//        List<String> articles = Arrays.asList("a","an","the");
+//        List<String> list = Arrays.asList("software","programmer","i","am","a","java","the");
+        
+        boolean isPassValid = false;
+        String myPass = "asdf";
+
+        try(Stream<String> lines = Files.lines(Paths.get(FILE_PATH))){
+            isPassValid = lines.noneMatch(line -> line.equals(myPass));
         }
+        
+
+        System.out.println(isPassValid); 
     }
     
     public static boolean isMore(String inS){
