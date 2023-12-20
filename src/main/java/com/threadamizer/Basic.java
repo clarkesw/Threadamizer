@@ -16,23 +16,28 @@ import java.util.stream.*;
  * @author Clarke S.
  */
 public class Basic {
-    private static String FILE_PATH = "C:\\Users\\clark\\OneDrive\\Documents\\NetBeansProjects\\Threadamizer\\src\\main\\java\\com\\threadamizer\\invalidpasswords.txt";
+    private static String FILE_PATH = "C:\\Users\\clark\\OneDrive\\Documents\\NetBeansProjects\\Threadamizer\\src\\main\\java\\com\\threadamizer\\sample.txt";
     public static void main(String[] args) throws IOException {
 //        List<String> names = Arrays.asList("me","twagon","mike","kasandri","Clarke");
 //        List<Integer> list = Arrays.asList(3, 4, 6, 12, 20); 
 
 //        List<String> articles = Arrays.asList("a","an","the");
 //        List<String> list = Arrays.asList("software","programmer","i","am","a","java","the");
+         Predicate<String> pred1 = line -> line.startsWith("#");
+        Predicate<String> pred2 = line -> line.endsWith("#");
         
         boolean isPassValid = false;
         String myPass = "asdf";
 
         try(Stream<String> lines = Files.lines(Paths.get(FILE_PATH))){
-            isPassValid = lines.noneMatch(line -> line.equals(myPass));
+            isPassValid = lines.allMatch(Basic::isLineProperlyDelimited);
         }
         
-
         System.out.println(isPassValid); 
+    }
+    
+    private static boolean isLineProperlyDelimited(String line) {
+            return line.startsWith("#")&& line.endsWith("#");
     }
     
     public static boolean isMore(String inS){

@@ -18,11 +18,12 @@ public class MovieTest {
 	public static void main(String[] args) {
 	
 		//movies in 2020
-		int year = 2000;
+		int year = 2015;
                 Genre genre = Genre.ACTION;
 		Predicate<Movie> movieReleasedInYear2020 = x -> x.getDateOfRelease().getYear() >= year;//movieReleasedInYear(year);
                 Predicate<Movie> movieByType = movie -> movie.getGenre() == genre;//movieReleasedInYear(year);
                 Predicate<Movie> movieByFranchise = movie -> movie.getName().contains("Rocky");
+                Predicate<Movie> mostMoney = movie -> movie.getName().contains("Rocky");
                 
                 
 //                Optional<String> inS1 = getMatches("stuff");
@@ -56,9 +57,33 @@ public class MovieTest {
 //		System.out.println("\nNames of directors that have released movies "
 //				+ "after year 2000: " +directors);
 
-		get2000sMovies(movieReleasedInYear2020);		
+		movie5Years(movieReleasedInYear2020);		
 	}
         
+    private static void movie5Years(Predicate<Movie> movieReleasedInYear2020) {
+           long getMoviesInYear = movies.stream()
+                    .filter(movieReleasedInYear2020)                    
+                    .count();    
+           
+        System.out.println("\nMovies released in Year: " + getMoviesInYear);
+    }
+             
+       private static void martinMovie() {
+            long max = movies.stream()
+                                    .filter(movie -> movie.getDirectorName().contains("Martin Scorsese"))
+                                    .mapToLong(Movie::getGrossEarning)
+                                    .sum();    
+           
+           System.out.println("\nMovies released in Year: " + max);
+     }
+        
+     private static void highestMovie() {
+            Optional<Movie> max = movies.stream()
+                    .min(Comparator.comparing(Movie::getGrossEarning));    
+           
+           System.out.println("\nMovies released in Year: " + max);
+     }
+     
      private static void get2000sMovies(Predicate<Movie> movieReleasedInYear2020) {
            List<String> getMoviesInYear = movies.stream()
                     .filter(movieReleasedInYear2020)                    
